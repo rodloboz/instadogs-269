@@ -1,0 +1,26 @@
+<h1>Dogs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Breed</th>
+    <th>Colour</th>
+    <th>Age</th>
+    <th>Actions</th>
+  </tr>
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.name %></td>
+        <td><%= dog.breed %></td>
+        <td><%= dog.colour %></td>
+        <td><%= pluralize(dog.age, 'year') %> old</td>
+        <td>
+          <%= link_to "Show", dog_path(dog) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add a Dog', new_dog_path %>
